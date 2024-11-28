@@ -15,11 +15,10 @@ typedef struct nut Tree;
 //Int Tree
 void InsertTreeInt(Tree *&root, Tree *newTree);
 void DisplayInt(Tree *root) ;
-int CountRoot1(Tree *root);
-
-int main() 
+int Height(Tree *root);
+int main()
 {
-		int n;
+	int n;
     Tree *root = NULL;
     
     //Int Tree
@@ -36,12 +35,9 @@ int main()
     InsertTreeInt(root, newTree);
 		}
     DisplayInt(root);
-    
-    cout<<"\n"<<CountRoot1(root);
-    
-  return 0;
+    cout<<"\nHeight of this tree is "<<Height(root);
+    return 0;
 }
-
 //function
 void InsertTreeInt(Tree *&root, Tree *newTree) 
 {
@@ -59,22 +55,11 @@ void DisplayInt(Tree *root)
   DisplayInt(root->right); 
 }
 
-int CountRoot1(Tree *root)
+int Height(Tree *root)
 {
-	int dem=0;
-	if(!root) return dem;
-	if(root->left !=NULL && root->right==NULL)
-	{
-		dem++;
-		CountRoot1(root->left);
-	}
-	if(root->left ==NULL && root->right!=NULL)
-	{
-		dem++;
-		CountRoot1(root->right);
-	}
-	dem += CountRoot1(root->left);
-  dem += CountRoot1(root->right);
-	return dem;
-	
+  if (!root) return 0;
+  int leftHeight = Height(root->left);
+  int rightHeight = Height(root->right);
+  return max(leftHeight, rightHeight) + 1;
 }
+

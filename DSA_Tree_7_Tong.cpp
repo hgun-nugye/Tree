@@ -36,7 +36,7 @@ int main()
     DisplayFloat(root);
     
   float x;
-  cout<<"\n\nEnter the value:";
+  cout<<"\n\nEnter the value (limit to count sum): ";
   cin>>x;
   //Count Sum fir all the value is little than x
   	cout<<"The sum need to count = "<<Sum(root,x)<<endl;
