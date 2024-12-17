@@ -6,7 +6,7 @@ struct nut
 {
   int ivalue;
   float fvalue;
-	char cvalue;
+  char cvalue;
   nut *left, *right;
 };
 typedef struct nut Tree;
@@ -19,8 +19,8 @@ bool CheckAVL(Tree *root);
 
 int main() 
 {
-	int n;
-  Tree *root = NULL;
+int n;
+Tree *root = NULL;
     
   //Int Tree
     cout<<"Processing in Integer Tree!\n";
@@ -33,23 +33,22 @@ int main()
     Tree *newTree = new Tree();
     newTree->ivalue = i;
     newTree->left = newTree->right = NULL;
-    InsertTreeInt(root, newTree);
-		}
+    InsertTreeInt(root, newTree);}
     DisplayInt(root);
     
   Tree *node=root;
   //Check AVL Tree
-		if (CheckAVL(root)) cout<<"\nThis is a AVL Tree"<<endl;
-		else cout<<"\nThis is not a AVL Tree"<<endl;
+    if (CheckAVL(root)) cout<<"\nThis is a AVL Tree"<<endl;
+    else cout<<"\nThis is not a AVL Tree"<<endl;
   return 0;
 }
 
 //function
 void InsertTreeInt(Tree *&root, Tree *newTree) 
 {
-	if (!root) root = newTree;
+  if (!root) root = newTree;
   else if (newTree->ivalue < root->ivalue) 
-		return InsertTreeInt(root->left, newTree);
+	return InsertTreeInt(root->left, newTree);
   else return InsertTreeInt(root->right, newTree);
 }
 
