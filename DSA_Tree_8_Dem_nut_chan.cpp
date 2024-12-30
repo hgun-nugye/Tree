@@ -64,12 +64,8 @@ int CountNoEven(Tree *root)
 	int count=0;
 	if(!root) return count;
 	if(root->ivalue%2==0 && root->ivalue>0) count ++;
-	//check left subtree
-	CountNoEven(root->left);
 	
-	//check right subtree
-	CountNoEven(root->right);
-	count+=CountNoEven(root->left);;
+	count+=CountNoEven(root->left);
 	count+=CountNoEven(root->right);
 	return count;	
 }
