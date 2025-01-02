@@ -109,7 +109,7 @@ Tree *Rebuild(Tree *&root, int x)
 				Tree *minNode = root->right;
         while (minNode && minNode->left) 
 				{
-          minNode = minNode->left; //find the min node in left subtree
+          minNode = minNode->left; //find the min node in right subtree
         }
         root->ivalue = minNode->ivalue; //copy that min value
         root->right = Rebuild(root->right, minNode->ivalue); //rebuild the right subtree.
